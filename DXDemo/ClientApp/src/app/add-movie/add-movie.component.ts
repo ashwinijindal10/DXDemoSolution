@@ -49,11 +49,11 @@ export class AddMovieComponent implements OnInit {
   }
 
   onSubmit(movie:Movie) {
-     this.movieSvc.addMovie(movie);
-    //  .subscribe((f:any)=>{
-
-    //  });
-     this.msgSvc.ShowMsg("Movie saved successfully", ActionStatus.Success);
+    this.movieSvc.addMovie(movie).subscribe(f => {
+      this.msgSvc.ShowMsg("Movie saved successfully", ActionStatus.Success);
+    });
+ 
+     
     return false;
   }
 

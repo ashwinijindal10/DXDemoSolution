@@ -26,6 +26,7 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     ReactiveFormsModule,
     AngularMaterialModule,
+
     //component
     UploaderComponent,
     SearchComponent
