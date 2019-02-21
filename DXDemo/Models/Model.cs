@@ -70,7 +70,7 @@ namespace DXDemo.Models
         [Key]
         public int id { get; set; }
         public string name { get; set; }
-        public DateTime year_of_release { get; set; }
+        public int year_of_release { get; set; }
         public string plot { get; set; }
         public string poster { get; set; }
 
