@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-title>Movie Details </mat-card-title>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+  <mat-card-content>
+
+      <div class="content"
+           fxLayout="row"
+           fxLayout.xs="column"
+           fxFlexFill>
+        <div fxFlex="60" fxLayout="column" class="sec1">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error align="right" *ngIf="!formGroup.controls['name'].valid && formGroup.controls['name'].touched">
+              please enter movie name
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Year of Release" formControlName="year_of_release">
+            <mat-error align="right" *ngIf="!formGroup.get('year_of_release').valid && formGroup.get('year_of_release').touched">
+              please select year of release
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <textarea matInput placeholder="Plot" formControlName="plot"></textarea>
+          </mat-form-field>
+        </div>
+        <div fxFlex="40" class="sec2">
+          <app-uploader></app-uploader>
+        </div>
+      </div>
+      <div class="full-width">
+        <mat-form-field class="with-add-button">
+            <mat-select formControlName="producer" placeholder="Producer">
+                <mat-option *ngFor="let item of procedures" [value]="item.id">
+                  {{item.name}}
+                </mat-option>
+             </mat-select>
+        </mat-form-field>
+        <button mat-button  (click)="addProducer()"><mat-icon>add</mat-icon>Add</button>
+      </div>
+      <div class="full-width">
+        <mat-form-field class="with-add-button">
+            <!-- https://run.stackblitz.com/api/angular/v1?file=app%2Fchips-autocomplete-example.ts -->
+            <mat-select formControlName="actors" placeholder="Actors" multiple>
+                <mat-option *ngFor="let item of actors" [value]="item.id">
+                  {{item.name}}
+                </mat-option>
+             </mat-select>
+        </mat-form-field>
+        <button mat-button (click)="addActor()"><mat-icon>add</mat-icon>Add</button>
+      </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">SAVE</button>
+  </mat-card-actions>
+</form>
+</mat-card>

@@ -1,0 +1,21 @@
+
+.mat-form-field {
+  display: block;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.mat-dialog-actions{
+  float: right
+}
+
+.mat-radio-group label , .mat-radio-group .mat-radio-button{
+ margin-right: 10px;
+}
+
+
+
+

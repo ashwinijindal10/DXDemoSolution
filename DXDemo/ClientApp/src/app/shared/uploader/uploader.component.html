@@ -1,0 +1,8 @@
+
+<mat-card class="cover-card">
+  <img mat-card-image  [src]="imgURL"  *ngIf="imgURL">
+  <mat-card-actions>
+    <button mat-button onclick="document.getElementById('get_cover_ctrl').click(); return false;">SELECT COVER</button>
+    <input id="get_cover_ctrl" type="file" #file (change)="preview(file.files)" accept="image/x-png,image/jpeg" style="display:none" />
+  </mat-card-actions>
+</mat-card>

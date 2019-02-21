@@ -1,0 +1,21 @@
+
+
+<button mat-icon-button *ngIf="!showSearchBar()"  (click)="initiateSearch()" class="search-button-main">
+    <mat-icon>search  </mat-icon>
+</button>
+
+<div  *ngIf="showSearchBar()" class="md-toolbar-tools search-bar">
+
+  <button mat-icon-button (click)="submit()">
+    <mat-icon>search</mat-icon>
+  </button>
+
+  <mat-form-field flex>
+    <input matInput placeholder="Search" [(ngModel)]="search">
+  </mat-form-field>
+
+
+  <button mat-icon-button (click)="endSearch()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

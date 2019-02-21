@@ -1,0 +1,16 @@
+.cover-card  {
+    max-width: 225px;
+    max-height: 200px;
+    min-width: 200px;
+    min-height: 200px;
+    margin-left: 20px
+  }
+
+  .cover-card img{
+      max-width: inherit;
+      max-height:inherit;
+  }
+  .cover-card .mat-card-actions {
+    bottom: 10px;
+    position: absolute
+  }

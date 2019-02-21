@@ -1,0 +1,19 @@
+
+<div fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<mat-form-field class="search-form" >
+  <input matInput placeholder="Search Movie" type="text">
+</mat-form-field>
+  <!--<button button="submit" mat-raised-button color="primary">Add New</button>-->
+</div>
+<br>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-card class="card-picture" *ngFor="let movie of movieList() | async">
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+      <span fxFlex="80%">{{movie.name}}({{movie.year_of_release}})</span>
+    <a [routerLink]="['/movies/edit',movie.id]"> <mat-icon fxFlex="10%">mode_edit</mat-icon></a>
+    <a href="/" (click)="deleteMovie(movie.id)"><mat-icon fxFlex="10%">delete</mat-icon></a> 
+    </mat-card-title>
+    <img mat-card-image [src]="movie.poster">
+  </mat-card>
+</div>

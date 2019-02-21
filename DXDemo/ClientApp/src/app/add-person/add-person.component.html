@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content [formGroup]="formGroup">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Name" formControlName="name">
+    <mat-error align="right" *ngIf="!formGroup.controls['name'].valid && formGroup.controls['name'].touched">
+      please enter name
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput   placeholder="Date of birth" [matDatepicker]="myDatepicker" formControlName="date_of_birth">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"> </mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+    <mat-error align="right" *ngIf="!formGroup.get('date_of_birth').valid && formGroup.get('date_of_birth').touched">
+      please select date of birth
+    </mat-error>
+  </mat-form-field>
+
+    <mat-radio-group  formControlName="gender">
+      <label> Gender</label>
+      <mat-radio-button value="M">Male</mat-radio-button>
+      <mat-radio-button value="F">Female</mat-radio-button>
+    </mat-radio-group>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Bio" formControlName="bio"></textarea>
+  </mat-form-field>
+
+</div>
+
+
+<mat-dialog-actions >
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
